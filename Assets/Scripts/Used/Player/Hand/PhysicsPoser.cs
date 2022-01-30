@@ -9,22 +9,22 @@ public class PhysicsPoser : MonoBehaviour
     public LayerMask physicsMasks = 0;
 
     [Range(0, 1)] public float slowDownVelocity = 0.75f;
-    [Range(0, 1)] public float slowDownAngularVelocity = 0.75f;
+    [Range(0, 1)] public float slowDownAngularVelocity = 0.85f;
 
     [Range(0, 100)] public float maxPositionChange = 75.0f;
     [Range(0, 100)] public float maxRotationChange = 75.0f;
-
+    public Transform modelTransform;
+    public Transform XROrigin;
     private Rigidbody rb = null;
     private XRController controller = null;
     private XRBaseInteractor interactor = null;
-
     private Vector3 targetPosition = Vector3.zero;
     private Quaternion targetRotation = Quaternion.identity;
-
     private void Awake(){
         rb = GetComponent<Rigidbody>();
         controller = GetComponent<XRController>();
         interactor = GetComponent<XRBaseInteractor>();
+        // modelTransform = transform.GetChild(0).GetComponent<Transform>();
     }
     
     private void Start(){
@@ -60,7 +60,7 @@ public class PhysicsPoser : MonoBehaviour
     }
 
     public bool WithinPhysicsRange(){
-        return Physics.CheckSphere(transform.position, physicsRange, physicsMasks, QueryTriggerInteraction.Ignore);
+        return Physics.CheckSphere(modelTransform.position, physicsRange, physicsMasks, QueryTriggerInteraction.Ignore);
     }
 
     private void MoveUsingTransform(){
@@ -86,28 +86,28 @@ public class PhysicsPoser : MonoBehaviour
 
     private void RotateUsingPhysics(){
         rb.angularVelocity *= slowDownAngularVelocity;
-
         Vector3 angularVelocity = FindNewAngularVelocity();
 
         if(IsValidValocity(angularVelocity.x)){
             float maxChange = maxRotationChange * Time.deltaTime;
+            
             rb.angularVelocity = Vector3.MoveTowards(rb.angularVelocity, angularVelocity, maxChange);
         }
     }
     private Vector3 FindNewVelocity(){
-        Vector3 difference = targetPosition - rb.position;
+        Vector3 difference = XROrigin.transform.TransformPoint(targetPosition) - rb.position;
         return difference / Time.deltaTime;
     }
 
     private Vector3 FindNewAngularVelocity(){
-        Quaternion differnce = targetRotation * Quaternion.Inverse(rb.rotation);
+        Quaternion differnce = Quaternion.Euler(XROrigin.eulerAngles) * targetRotation * Quaternion.Inverse(rb.rotation);
+
         differnce.ToAngleAxis(out float angularInDegrees, out Vector3 rotationAxis);
 
         if(angularInDegrees > 180){
             angularInDegrees -= 360;
         }
-
-        return (rotationAxis * angularInDegrees * Mathf.Deg2Rad) / Time.deltaTime;
+        return rotationAxis * (angularInDegrees * Mathf.Deg2Rad / Time.deltaTime);
     }
 
     private bool IsValidValocity(float value){
@@ -116,8 +116,8 @@ public class PhysicsPoser : MonoBehaviour
     }
 
     private void OnDrawGizmos()
-    {
-        Gizmos.DrawWireSphere(transform.position, physicsRange);
+    { 
+        Gizmos.DrawWireSphere(modelTransform.position, physicsRange);
     }
 
     private void OnValidate() {

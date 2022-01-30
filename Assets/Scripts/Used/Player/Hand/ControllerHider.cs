@@ -37,6 +37,7 @@ public class ControllerHider : MonoBehaviour
 
     private IEnumerator WaitForRange(){
         yield return new WaitWhile(physicsPoser.WithinPhysicsRange);
+        yield return new WaitForSeconds(0.3f);
         controllerObject.SetActive(true);
     }
 }
