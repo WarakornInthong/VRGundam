@@ -41,15 +41,19 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         base.OnSelectEntering(args);
     }
 
+    [System.Obsolete]
     void LateUpdate(){
-        if(isGrab)
+        if(selectingInteractor){
             CheckDistance();
+        }
+            
     }
 
     private void CheckDistance(){
         float distance = Vector3.Distance(interactor.transform.position,transform.position);
         if(distance > maxDistance){
             Drop();
+            isGrab = false;
             Debug.Log("Drop");
         }
     }

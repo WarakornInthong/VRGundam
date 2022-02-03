@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public LayerMask groundLayer;
     // public GameObject floor;
-    private float fallingSpeed;
+    public float fallingSpeed;
     public float additionalHeight;
 
     private XROrigin rig;
