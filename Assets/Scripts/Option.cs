@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.XR.CoreUtils;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -10,12 +11,19 @@ public class Option : MonoBehaviour
     public Slider playerHeight;
     public Text playerHeightText;
     private float prevHeight;
+
+
     [Header("Movement Type")]
     public Text moveTypeText;
     public bool movementType;
-    [Header("Target")]
-    public GameObject player;
 
+
+    [Header("Target")]
+    private GameObject player;
+
+    void Awake(){
+        player = GameObject.Find("XR Origin");
+    }
     void Update()
     {
         ChangeHeight();
@@ -25,7 +33,7 @@ public class Option : MonoBehaviour
         if(prevHeight != playerHeight.value){
             // change character height
             if(player){
-                player.GetComponent<XRRig>().cameraYOffset = 1+playerHeight.value;
+                player.GetComponent<XROrigin>().CameraYOffset = 1 + playerHeight.value;
             }
             // 
             playerHeightText.text = (1+playerHeight.value).ToString();
@@ -34,6 +42,7 @@ public class Option : MonoBehaviour
     }
 
     public void Movetype(){
+        movementType = !movementType;
         if(!movementType){
             // Change to Walk
             if(player){
@@ -50,6 +59,6 @@ public class Option : MonoBehaviour
                 moveTypeText.text = "Teleport";
             }
         }
-        movementType = !movementType;
+        
     }
 }

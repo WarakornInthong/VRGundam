@@ -41,9 +41,16 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         base.OnSelectEntering(args);
     }
 
-    [System.Obsolete]
+    protected override void OnSelectExiting(SelectExitEventArgs args)
+    {
+        isGrab = false;
+        base.OnSelectExiting(args);
+    }
+
     void LateUpdate(){
-        if(selectingInteractor){
+        // test 
+        if(isSelected && isGrab){
+            Debug.Log("=w=");
             CheckDistance();
         }
             

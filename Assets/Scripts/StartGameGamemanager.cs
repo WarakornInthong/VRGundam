@@ -22,7 +22,7 @@ public class StartGameGamemanager : MonoBehaviour
         }
         if(operation.isDone){
             SceneManager.UnloadSceneAsync("StartScene");
-            GameObject.Find("XR Rig").transform.position = setPosition;
+            GameObject.Find("XR Origin").transform.position = setPosition;
         }
         
 

@@ -2068,34 +2068,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8747374841108609216, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747374841108609216, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8747374841108609220, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1339974754}
-    - target: {fileID: 8747374842729379991, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-      propertyPath: m_Interpolate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8747374842729379991, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 8747374842729380011, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_InteractionManager
       value: 
       objectReference: {fileID: 1339974754}
-    - target: {fileID: 8747374843081568112, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-      propertyPath: groundLayer.m_Bits
-      value: 135
-      objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_RootOrder
       value: 7
