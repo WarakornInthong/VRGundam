@@ -23,6 +23,8 @@ public class Option : MonoBehaviour
 
     void Awake(){
         player = GameObject.Find("XR Origin");
+        playerHeight.value = 0f;
+        PlayerMovement.additionalHeight = playerHeight.value;
     }
     void Update()
     {
@@ -33,7 +35,7 @@ public class Option : MonoBehaviour
         if(prevHeight != playerHeight.value){
             // change character height
             if(player){
-                player.GetComponent<XROrigin>().CameraYOffset = 1 + playerHeight.value;
+                PlayerMovement.additionalHeight = playerHeight.value;
             }
             // 
             playerHeightText.text = (1+playerHeight.value).ToString();
@@ -46,16 +48,16 @@ public class Option : MonoBehaviour
         if(!movementType){
             // Change to Walk
             if(player){
-                player.GetComponent<PlayerMovement>().enabled = true;
-                player.transform.GetChild(0).GetChild(3).gameObject.SetActive(false);
+                // player.GetComponent<PlayerMovement>().enabled = true;
+                // player.transform.GetChild(0).GetChild(3).gameObject.SetActive(false);
                 moveTypeText.text = "Walk";
             }
         }
         else{
             // Change to teleport
             if(player){
-                player.GetComponent<PlayerMovement>().enabled = false;
-                player.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
+                // player.GetComponent<PlayerMovement>().enabled = false;
+                // player.transform.GetChild(0).GetChild(3).gameObject.SetActive(true);
                 moveTypeText.text = "Teleport";
             }
         }
