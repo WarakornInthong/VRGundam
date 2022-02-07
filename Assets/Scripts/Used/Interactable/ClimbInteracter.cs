@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class ClimbInteractable : XRBaseInteractable
+public class ClimbInteracter : XRBaseInteractable
 {
     protected override void OnSelectEntering(SelectEnterEventArgs args){
         base.OnSelectEntering(args);
