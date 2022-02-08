@@ -253,6 +253,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2120067183}
     - target: {fileID: 8271302937835820841, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302937835820841, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
       propertyPath: target
       value: 
       objectReference: {fileID: 2120067181}
@@ -264,6 +268,38 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2120067181}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_XMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_YMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_ZMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_AngularXMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_AngularZMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_ProjectionAngle
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_LinearLimitSpring.damper
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8271302938070497434, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
+      propertyPath: m_LinearLimitSpring.spring
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be23622bea2f4e747ad12a41a15c3966, type: 3}
 --- !u!1001 &2120067180

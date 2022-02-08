@@ -27,7 +27,7 @@ public class DirectionMechController : MonoBehaviour
 
 
     void Start()
-    {   
+    {
         // Setup
         controller = GetComponent<Controller>();
         rig = GetComponent<Rigidbody>();
@@ -71,9 +71,9 @@ public class DirectionMechController : MonoBehaviour
         else{
 
             // Reset Controller Postion Mechanic
-            if(Vector3.Distance(defaultPosition, transform.position) > 0.1f){
+            if(Vector3.Distance(defaultPosition, transform.position) > 0.01f){
                 // Force to point
-                rig.AddForce((defaultPosition - transform.position).normalized * speed , forceMode);
+                ReturnToDefaultPosition();
             }
             else{
                 // Lock 
@@ -83,6 +83,11 @@ public class DirectionMechController : MonoBehaviour
         }
     }
 
+
+    public void ReturnToDefaultPosition(){
+        transform.position =  Vector3.Lerp(transform.position, defaultPosition, speed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, speed);
+    }
     public void ResetPostion(){
         rig.velocity = Vector3.zero;
         rig.angularVelocity = Vector3.zero;
