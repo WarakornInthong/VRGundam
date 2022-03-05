@@ -50,7 +50,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
     void LateUpdate(){
         // test 
         if(isSelected && isGrab){
-            Debug.Log("=w=");
+            // Debug.Log("=w=");
             CheckDistance();
         }
             
@@ -61,7 +61,7 @@ public class XROffsetGrabInteractable : XRGrabInteractable
         if(distance > maxDistance){
             Drop();
             isGrab = false;
-            Debug.Log("Drop");
+            // Debug.Log("Drop");
         }
     }
 }

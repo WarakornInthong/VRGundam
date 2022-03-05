@@ -8,8 +8,10 @@ public class ClimbInteracter : XRBaseInteractable
     protected override void OnSelectEntering(SelectEnterEventArgs args){
         base.OnSelectEntering(args);
 
-        if(args.interactorObject is IXRInteractor)
+        if(args.interactorObject is IXRInteractor){
             Climber.climbingHand = args.interactorObject.transform.GetComponent<XRController>();
+        }
+            
     }
 
     protected override void OnSelectExiting(SelectExitEventArgs args){
