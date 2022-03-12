@@ -17,7 +17,6 @@ public class DirectionMechController : MonoBehaviour
     private Rigidbody rig;
     [SerializeField]
     private ForceMode forceMode;
-    public float speed;
     public float rSpeed;
 
     // Target Parameter
@@ -47,8 +46,17 @@ public class DirectionMechController : MonoBehaviour
             
             // Rotate Target
             float direct = transform.position.z -  defaultPosition.z;
-            if(Mathf.Abs(direct) > 0.1f){
-                target.transform.Rotate(Vector3.up, Time.deltaTime * -direct * rSpeed);
+            float rotate;
+            // Debug.Log(transform.localRotation.eulerAngles.x);
+            if(transform.localRotation.eulerAngles.x >= 180){
+                rotate = transform.localRotation.eulerAngles.x - 360;
+            }
+            else{
+                rotate = transform.localRotation.eulerAngles.x;
+            }
+            if(Mathf.Abs(rotate) > 40 && Mathf.Abs(rotate) < 110){
+                // Debug.Log(rotate * rSpeed);
+                target.transform.Rotate(Vector3.up, Time.deltaTime * -rotate * rSpeed);
             }
 
             // Aiming
@@ -60,11 +68,11 @@ public class DirectionMechController : MonoBehaviour
             InputDevice device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
             device.TryGetFeatureValue(CommonUsages.triggerButton, out bool trigger);
             if(trigger){
-                animator.SetBool("Trigger", true);
+                // animator.SetBool("Trigger", true);
                 mechGun.fire();
             }
             else{
-                animator.SetBool("Trigger", false);
+                // animator.SetBool("Trigger", false);
             }
 
         }
@@ -85,8 +93,8 @@ public class DirectionMechController : MonoBehaviour
 
 
     public void ReturnToDefaultPosition(){
-        transform.position =  Vector3.Lerp(transform.position, defaultPosition, speed);
-        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, speed);
+        transform.position =  Vector3.Lerp(transform.position, defaultPosition, 0.9f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, 0.9f);
     }
     public void ResetPostion(){
         rig.velocity = Vector3.zero;

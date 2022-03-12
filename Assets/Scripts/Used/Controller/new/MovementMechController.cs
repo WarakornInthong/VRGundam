@@ -45,9 +45,19 @@ public class MovementMechController : MonoBehaviour
             mechCharacter.enabled = true;
 
             // direction that mech move to (dynamics)
-            Vector3 jdirect = Vector3.ProjectOnPlane(joyDirection.up, Vector3.up);
+            Vector3 jdirect = transform.rotation.eulerAngles;
+            if(jdirect.x >= 180){
+                jdirect.x -= 360;
+            }
+            if(jdirect.z >= 180){
+                jdirect.z -= 360;
+            }
+            jdirect.y = 0;
+
+
+
             Quaternion headYaw = Quaternion.Euler(0, target.transform.eulerAngles.y, 0);
-            Vector3 direction = headYaw * new Vector3(-jdirect.z, 0, jdirect.x);
+            Vector3 direction = headYaw * -jdirect/10;
             mechCharacter.Move(direction * Time.fixedDeltaTime * jaganController.moveSpeed);
 
         }
@@ -58,6 +68,7 @@ public class MovementMechController : MonoBehaviour
             if(Vector3.Distance(defaultPosition, transform.position) > 0.01f){
                 // Force to point
                 ReturnToDefaultPosition();
+                Debug.Log("reset movement");
             }
             else{
                 // Lock 
@@ -67,8 +78,8 @@ public class MovementMechController : MonoBehaviour
     }
 
     private void ReturnToDefaultPosition(){
-        transform.position =  Vector3.Lerp(transform.position, defaultPosition, 0.05f);
-        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, 0.05f);
+        transform.position =  Vector3.Lerp(transform.position, defaultPosition, 0.9f);
+        transform.rotation = Quaternion.Lerp(transform.rotation, defaultRotation, 0.9f);
     }
 
     public void ResetPostion(){
@@ -76,6 +87,6 @@ public class MovementMechController : MonoBehaviour
         rig.angularVelocity = Vector3.zero;
         transform.position = defaultPosition;
         transform.forward = defaultForward;
-
+        
     }
 }

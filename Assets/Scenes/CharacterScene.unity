@@ -301,6 +301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin
       objectReference: {fileID: 0}
+    - target: {fileID: 8747374843081568119, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
 --- !u!114 &550175173 stripped
