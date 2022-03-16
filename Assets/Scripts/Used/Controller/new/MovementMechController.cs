@@ -68,7 +68,7 @@ public class MovementMechController : MonoBehaviour
             if(Vector3.Distance(defaultPosition, transform.position) > 0.01f){
                 // Force to point
                 ReturnToDefaultPosition();
-                Debug.Log("reset movement");
+                // Debug.Log("reset movement");
             }
             else{
                 // Lock 

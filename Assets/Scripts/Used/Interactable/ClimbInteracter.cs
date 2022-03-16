@@ -5,11 +5,13 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class ClimbInteracter : XRBaseInteractable
 {
+    [SerializeField]public bool isFinal = false;
     protected override void OnSelectEntering(SelectEnterEventArgs args){
         base.OnSelectEntering(args);
 
         if(args.interactorObject is IXRInteractor){
             Climber.climbingHand = args.interactorObject.transform.GetComponent<XRController>();
+            Climber.isFinal = isFinal;
         }
             
     }

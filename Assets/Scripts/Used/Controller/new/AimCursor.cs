@@ -34,7 +34,10 @@ public class AimCursor : MonoBehaviour
                 posCursor = hit.point - centerOfMonitor.position;
                 // Debug.Log(posCursor);
                 aimDirection = (hit.point - transform.position).normalized;
+                Vector3 newObj = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
                 obj.localPosition = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
+                // obj.localPosition = Vector3.Lerp(newObj ,obj.localPosition,0);
+                
             }
             else{
                 // cursor.SetActive(false);
