@@ -42,7 +42,7 @@ public class MovementMechController : MonoBehaviour
         if(controller.isUsed){
 
             // Control mech movement 
-            mechCharacter.enabled = true;
+            // mechCharacter.enabled = true;
 
             // direction that mech move to (dynamics)
             Vector3 jdirect = transform.rotation.eulerAngles;
@@ -58,11 +58,13 @@ public class MovementMechController : MonoBehaviour
 
             Quaternion headYaw = Quaternion.Euler(0, target.transform.eulerAngles.y, 0);
             Vector3 direction = headYaw * -jdirect/10;
-            mechCharacter.Move(direction * Time.fixedDeltaTime * jaganController.moveSpeed);
+            jaganController.moveDirection = direction * Time.fixedDeltaTime * jaganController.moveSpeed;
+            // mechCharacter.Move(direction * Time.fixedDeltaTime * jaganController.moveSpeed);
 
         }
         else{
-            mechCharacter.enabled = false;
+            jaganController.moveDirection = Vector3.zero;
+            // mechCharacter.enabled = false;
 
             // Reset Controller Postion Mechanic
             if(Vector3.Distance(defaultPosition, transform.position) > 0.01f){
@@ -89,4 +91,5 @@ public class MovementMechController : MonoBehaviour
         transform.forward = defaultForward;
         
     }
+
 }

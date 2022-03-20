@@ -174,57 +174,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3698459400281552201, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: shotPower
-      value: 2000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3698459400281552201, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: ejectPower
-      value: 500
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1744335015}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReleaseSlide
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SimpleShoot, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801586246, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: OnRelease.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801587128, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_XDrive.positionSpring
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4583485500801587135, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     - target: {fileID: 5018337623128270424, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
       propertyPath: m_Name
       value: M1911 Handgun_Black (Shooting)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5018337623128270424, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5022607954752045102, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
       propertyPath: m_RootOrder
@@ -270,22 +222,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -75.159
       objectReference: {fileID: 0}
-    - target: {fileID: 5791311145446181073, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791311145721565538, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791311145934820889, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5791311147038364783, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
 --- !u!1001 &189218875
@@ -295,10 +231,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1350022807881122184, guid: 64b4801ef4fe459469ae9540d2328832, type: 3}
-      propertyPath: m_Layer
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 1608957463555060975, guid: 64b4801ef4fe459469ae9540d2328832, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1107,17 +1039,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1744335015 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3698459400281552201, guid: b729daa2089001b4eb3925cd74263c4f, type: 3}
-  m_PrefabInstance: {fileID: 161973241}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be84e4d7829855419c06b94e56bd135, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2014737043
 GameObject:
   m_ObjectHideFlags: 0

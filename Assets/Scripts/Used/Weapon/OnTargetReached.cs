@@ -18,6 +18,7 @@ public class OnTargetReached : MonoBehaviour
 
         if(distance < threshold && !wasReached){
             OnReached.Invoke();
+            // Debug.Log(distance);
             wasReached = true;
         }
         else if(distance >= threshold){
@@ -26,5 +27,4 @@ public class OnTargetReached : MonoBehaviour
         }
     }
 
-    
 }

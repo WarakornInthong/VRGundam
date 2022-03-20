@@ -11,6 +11,12 @@ public class JaganController : MonoBehaviour
     [SerializeField][Range (0,1)]
     private float aimSpeed;
 
+    public LayerMask groundLayer;
+    // public GameObject floor;
+    public float fallingSpeed;
+    private CharacterController character;
+    private float gravity = -9.81f;
+
     // Controller
     [Range (4, 10)]
     public float moveSpeed;
@@ -18,11 +24,15 @@ public class JaganController : MonoBehaviour
     // Animation
     private Animator animator;
 
+    public float rayLength;
+    public Vector3 moveDirection;
     void Start()
     {
         // Set Animation Fight Mode
         animator = GetComponent<Animator>();
         animator.SetBool("Aim",true);
+
+        character = GetComponent<CharacterController>();
     }
 
     void Update()
@@ -33,6 +43,21 @@ public class JaganController : MonoBehaviour
         }
         else if(moveSpeed < 4f){
             moveSpeed = 4f;
+        }
+    }
+
+    void FixedUpdate(){
+        bool isGrounded = CheckIfGrounded();
+        if(isGrounded)
+            fallingSpeed = 0;
+        else
+            fallingSpeed += gravity * Time.fixedDeltaTime;
+        if(character.enabled){
+            
+            // การเดิน
+            character.Move(moveDirection);
+            // การตก
+            character.Move(Vector3.up * fallingSpeed * Time.fixedDeltaTime);
         }
     }
 
@@ -71,5 +96,12 @@ public class JaganController : MonoBehaviour
         if(eulerAngles.z > 180){
             eulerAngles.z -= 360;
         }
+    }
+
+    bool CheckIfGrounded(){
+        Vector3 rayStart = transform.TransformPoint(character.center);
+        // float rayLength = character.center.y;
+        bool hasHit = Physics.SphereCast(rayStart, 0, Vector3.down, out RaycastHit hiyInfo, rayLength, groundLayer);
+        return hasHit;
     }
 }
