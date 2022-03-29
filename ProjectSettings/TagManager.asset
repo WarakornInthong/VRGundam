@@ -7,6 +7,8 @@ TagManager:
   - Weapon
   - GunMagazine
   - Hand
+  - Obstacle
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -20,8 +22,8 @@ TagManager:
   - Obstacle
   - Grabale ignore other
   - Climbing
-  - 
-  - 
+  - Enemy
+  - Ally
   - 
   - 
   - 

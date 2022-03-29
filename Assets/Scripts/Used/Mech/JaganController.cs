@@ -26,6 +26,10 @@ public class JaganController : MonoBehaviour
 
     public float rayLength;
     public Vector3 moveDirection;
+
+    [SerializeField]
+    private float hp = 100;
+    
     void Start()
     {
         // Set Animation Fight Mode
@@ -104,4 +108,18 @@ public class JaganController : MonoBehaviour
         bool hasHit = Physics.SphereCast(rayStart, 0, Vector3.down, out RaycastHit hiyInfo, rayLength, groundLayer);
         return hasHit;
     }
+
+    public void GetTakingDamage(float damage){
+            hp -= damage;
+            Debug.Log("Och!");     
+    }
+
+    public float GetHP(){
+        return hp;
+    }
+
+    // IEnumerator CooldownDamage(){
+    //     yield return new WaitForSeconds(0.5f);
+    //     isTakingDamage = false;
+    // }
 }

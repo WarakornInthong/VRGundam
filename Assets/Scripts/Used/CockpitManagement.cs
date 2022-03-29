@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
+
 public class CockpitManagement : MonoBehaviour
 {
     private Animator animator;
@@ -11,6 +13,8 @@ public class CockpitManagement : MonoBehaviour
     public GameObject playerInCockpit;
     private bool isPower = false;
     public TextMeshProUGUI text;
+    public JaganController jagan;
+    public Image hpBar;
 
     void Start()
     {
@@ -23,6 +27,7 @@ public class CockpitManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hpBar.fillAmount = (jagan.GetHP())/100;
     }
 
     public void ActiveCockpitDoor(){
