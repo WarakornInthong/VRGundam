@@ -13,7 +13,7 @@ public class CockpitManagement : MonoBehaviour
     public GameObject playerInCockpit;
     private bool isPower = false;
     public TextMeshProUGUI text;
-    public JaganController jagan;
+    public CharacterStatus characterStatus;
     public Image hpBar;
 
     void Start()
@@ -27,7 +27,7 @@ public class CockpitManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        hpBar.fillAmount = (jagan.GetHP())/100;
+        hpBar.fillAmount = (characterStatus.GetHP())/100;
     }
 
     public void ActiveCockpitDoor(){

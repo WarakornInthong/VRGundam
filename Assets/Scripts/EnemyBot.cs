@@ -13,11 +13,6 @@ public class EnemyBot : MonoBehaviour
     protected AudioSource sound;
     protected Slider hpBar;
     protected ParticleSystem explosionParticle;
-    void OnCollisionEnter(Collision other)
-    {
-        //if(other.gameObject.CompareTag("Weapon")){
-        //    hp -= other.gameObject.GetComponent<Weapon>().damage;
-        //}
+
     
-    }
 }

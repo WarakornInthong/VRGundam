@@ -29,6 +29,7 @@ public class JaganController : MonoBehaviour
 
     [SerializeField]
     private float hp = 100;
+    private CharacterStatus characterStatus;
     
     void Start()
     {
@@ -37,17 +38,23 @@ public class JaganController : MonoBehaviour
         animator.SetBool("Aim",true);
 
         character = GetComponent<CharacterController>();
+        if(GetComponent<CharacterStatus>() != null){
+            characterStatus = GetComponent<CharacterStatus>();
+            characterStatus.StartEngine(moveSpeed, hp, 100, 100, 100);
+        }
     }
 
     void Update()
     {
         // Check Speed
+        moveSpeed = characterStatus.GetMoveSpeed();
         if(moveSpeed >= 10){
             moveSpeed = 10;
         }
         else if(moveSpeed < 4f){
             moveSpeed = 4f;
         }
+        hp = characterStatus.GetHP();
     }
 
     void FixedUpdate(){
@@ -110,12 +117,8 @@ public class JaganController : MonoBehaviour
     }
 
     public void GetTakingDamage(float damage){
-            hp -= damage;
-            Debug.Log("Och!");     
-    }
-
-    public float GetHP(){
-        return hp;
+            characterStatus.GetDamaged(damage);
+            Debug.Log("Och!");
     }
 
     // IEnumerator CooldownDamage(){
