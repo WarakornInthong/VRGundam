@@ -14,12 +14,23 @@ public class AimCursor : MonoBehaviour
     public LayerMask layer;
     // public Vector3 aimDirection;
     private Vector3 aimDirection;
-    // Start is called before the first frame update
+    
+    private Vector3 hitPoint;
     void Start()
     {
         // line = GetComponent<LineRenderer>();
     }
 
+    private void OnDrawGizmos() {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + transform.right * distance);
+
+        if(hitPoint != Vector3.zero){
+            Gizmos.color = Color.red;
+            Gizmos.DrawSphere(hitPoint, 0.02f);
+        }
+
+    }
 
     public void MapCursor(bool isActive){
         if(isActive){
@@ -27,7 +38,7 @@ public class AimCursor : MonoBehaviour
             if(Physics.Raycast(transform.position, transform.right, out hit, distance, layer)){
                 // cursor.SetActive(true);
                 // line.enabled = true;
-
+                hitPoint = hit.point;
                 // line.SetPosition(0, transform.position);
                 // line.SetPosition(1, hit.point); 
                 // cursor.transform.position = hit.point;

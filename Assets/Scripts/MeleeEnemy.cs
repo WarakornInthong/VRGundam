@@ -132,7 +132,7 @@ public class MeleeEnemy : EnemyBot
         yield return new WaitForSeconds(2f);
         isAttack=false;
         isTakingDamage = true;
-        // animator.SetBool("attack", isAttack);
+        animator.SetBool("attack", isAttack);
         
     }
 
@@ -142,6 +142,13 @@ public class MeleeEnemy : EnemyBot
             if(attackedTargets.Length != 0){
                 if(attackedTargets[0].GetComponent<JaganController>() != null){
                     attackedTargets[0].GetComponent<JaganController>().GetTakingDamage(2);
+                    
+                    isTakingDamage = false;
+                }
+                if(attackedTargets[0].GetComponent<CharacterHitbox>() != null){
+                    CharacterStatus status = attackedTargets[0].transform.root.GetComponent<CharacterStatus>();
+                    status.GetDamagedWithTag(2, attackedTargets[0].GetComponent<CharacterHitbox>().GetTag());
+                    
                     isTakingDamage = false;
                 }
             }

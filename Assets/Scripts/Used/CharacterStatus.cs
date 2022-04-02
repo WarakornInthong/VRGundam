@@ -16,6 +16,8 @@ public class CharacterStatus : MonoBehaviour
     private float bu_Armor;
     private float bu_MoveSpeed;
     private float bu_Shiled;
+
+    public HitArea[] hitAreas;
     void Start()
     {
         
@@ -100,5 +102,25 @@ public class CharacterStatus : MonoBehaviour
 
     public void UseFuel(float fuel){
         c_Fuel -= fuel * Time.deltaTime;
+    }
+
+    public void GetDamagedWithTag(float damage, string tag){
+        if(hitAreas.Length != 0){
+            for(int i = 0 ; i < hitAreas.Length ; i++){
+                if(hitAreas[i].tag == tag){
+                    hitAreas[i].value -= damage;
+                    Debug.Log("Get Attack at " + hitAreas[i].tag);
+                    Debug.Log("now duration is " + hitAreas[i].value);
+                    break;
+                }
+            }
+        }
+    }
+
+    [System.Serializable]
+    public class HitArea{
+        public string tag;
+        public CharacterHitbox[] hitboxs;
+        public float value;
     }
 }
