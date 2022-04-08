@@ -25,10 +25,10 @@ public class TestRayHit : MonoBehaviour
         }
     }
 
-    public void TestRayCast(){
-        if(XRRay.TryGetCurrent3DRaycastHit(out RaycastHit rayhit)){
-            AimedPic.transform.position = rayhit.point;
-            AimedPic.transform.up = rayhit.normal;
-        }
-    }
+    // public void TestRayCast(){
+    //     if(XRRay.TryGetCurrent3DRaycastHit(out RaycastHit rayhit)){
+    //         AimedPic.transform.position = rayhit.point;
+    //         AimedPic.transform.up = rayhit.normal;
+    //     }
+    // }
 }

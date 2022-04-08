@@ -18,36 +18,51 @@ public class Controller : XRGrabInteractable
 
         base.OnSelectEntering(args);
 
-        if(args.interactorObject is XRController){
+        if(args.interactorObject is IXRSelectInteractor){
             XRController controller = args.interactorObject.transform.GetComponent<XRController>();
-            GameObject player = controller.transform.parent.parent.gameObject;
+            GameObject player = controller.transform.root.gameObject;
             
-            if(controller.controllerNode == XRNode.LeftHand && player.name == "XR Origin"){
-                player.GetComponent<PlayerMovement>().enabled = false;
-                player.GetComponent<Climber>().enabled = false;
-            }
-            else if(controller.controllerNode == XRNode.RightHand && player.name == "XR Origin"){
-                player.GetComponent<DeviceBasedSnapTurnProvider>().enabled = false;
-            }
+            ComponentControl(isUsed, controller.controllerNode, player);
+            // if(controller.controllerNode == XRNode.LeftHand && player.name == "XR Origin"){
+            //     player.GetComponent<PlayerMovement>().enabled = false;
+            //     player.GetComponent<Climber>().enabled = false;
+            // }
+            // else if(controller.controllerNode == XRNode.RightHand && player.name == "XR Origin"){
+            //     player.GetComponent<DeviceBasedSnapTurnProvider>().enabled = false;
+            // }
         }
     }
 
     protected override void OnSelectExiting(SelectExitEventArgs args)
     {
         UsedController(false);
+
         base.OnSelectExiting(args);
 
-        if(args.interactorObject is XRController){
+        if(args.interactorObject is IXRSelectInteractor){
             XRController controller = args.interactorObject.transform.GetComponent<XRController>();
-            GameObject player = controller.transform.parent.parent.gameObject;
+            GameObject player = controller.transform.root.gameObject;
             
-            if(controller.controllerNode == XRNode.LeftHand && player.name == "XR Origin"){
-                player.GetComponent<PlayerMovement>().enabled = true;
-                player.GetComponent<Climber>().enabled = true;
-            }
-            else if(controller.controllerNode == XRNode.RightHand && player.name == "XR Origin"){
-                player.GetComponent<DeviceBasedSnapTurnProvider>().enabled = true;
-            }
+            ComponentControl(isUsed, controller.controllerNode, player);
+
+            // if(controller.controllerNode == XRNode.LeftHand && player.name == "XR Origin"){
+            //     player.GetComponent<PlayerMovement>().enabled = true;
+            //     player.GetComponent<Climber>().enabled = true;
+            // }
+            // else if(controller.controllerNode == XRNode.RightHand && player.name == "XR Origin"){
+            //     player.GetComponent<DeviceBasedSnapTurnProvider>().enabled = true;
+            // }
+        }
+    }
+
+
+    private void ComponentControl(bool status, XRNode node, GameObject player){
+        if(node == XRNode.LeftHand){
+            player.GetComponent<PlayerMovement>().enabled = !status;
+            player.GetComponent<Climber>().enabled = !status;
+        }
+        else if(node == XRNode.RightHand){
+                player.GetComponent<DeviceBasedSnapTurnProvider>().enabled = !status;
         }
     }
 

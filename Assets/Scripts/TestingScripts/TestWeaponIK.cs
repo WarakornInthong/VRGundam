@@ -22,7 +22,11 @@ public class TestWeaponIK : MonoBehaviour
     public float distanceLimit = 1.5f;
     void Start()
     {
-
+        if(!targetTransform){
+            Debug.Log("error");
+            targetTransform = new GameObject("new Target").transform;
+            targetTransform.position = transform.position + transform.forward * 10;
+        }
     }
 
     // Update is called once per frame

@@ -388,7 +388,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &1065312013
 Light:
   m_ObjectHideFlags: 0
@@ -562,7 +562,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1685541871
 AudioListener:
   m_ObjectHideFlags: 0
@@ -678,10 +678,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3662d34f333fb694aadc2c76eb5bfe11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetTransform: {fileID: 396025310}
+  targetTransform: {fileID: 0}
   aimTransform: {fileID: 820902775}
   bone: {fileID: 1295253589}
   iterations: 10
-  weight: 1
-  angleLimit: 90
+  weight: 0.4
+  angleLimit: 70
   distanceLimit: 3

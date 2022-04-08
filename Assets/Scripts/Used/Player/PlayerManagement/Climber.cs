@@ -7,7 +7,7 @@ public class Climber : MonoBehaviour
 {
     private CharacterController character;
 
-    [HideInInspector]
+    // [HideInInspector]
     public static XRController climbingHand;
     private PlayerMovement playerMovement;
     private float speed = 1;

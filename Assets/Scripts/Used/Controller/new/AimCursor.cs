@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AimCursor : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class AimCursor : MonoBehaviour
     public Transform centerOfMonitor;
     // public GameObject target;
     public Transform obj;
+    public GameObject aimImage;
+    public Transform normalPlane;
+    public Transform rayOrigin;
+    public Transform realTarget;
     public float distance;
     // private LineRenderer line;
     public LayerMask layer;
@@ -16,6 +21,8 @@ public class AimCursor : MonoBehaviour
     private Vector3 aimDirection;
     
     private Vector3 hitPoint;
+
+    public float time =1;
     void Start()
     {
         // line = GetComponent<LineRenderer>();
@@ -47,6 +54,16 @@ public class AimCursor : MonoBehaviour
                 aimDirection = (hit.point - transform.position).normalized;
                 Vector3 newObj = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
                 obj.localPosition = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
+                if(aimImage){
+                    //Raycast(Vector3 origin, Vector3 direction, out RaycastHit hitInfo);\
+                    if(Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit objectHit))
+                    {
+                        realTarget.position = objectHit.point;
+                        Vector2 aimPosition = Vector3.ProjectOnPlane(objectHit.point-normalPlane.position, normalPlane.forward);
+                        // Debug.Log(aimPosition);
+                        aimImage.GetComponent<Transform>().localPosition = aimPosition ;
+                    }
+                }
                 // obj.localPosition = Vector3.Lerp(newObj ,obj.localPosition,0);
                 
             }

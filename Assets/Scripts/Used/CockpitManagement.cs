@@ -10,7 +10,7 @@ public class CockpitManagement : MonoBehaviour
     private bool cockpitDoor = false;
     private bool isPlayAnimation = false;
     public GameObject player;
-    public GameObject playerInCockpit;
+    // public GameObject playerInCockpit;
     private bool isPower = false;
     public TextMeshProUGUI text;
     public CharacterStatus characterStatus;
@@ -55,8 +55,8 @@ public class CockpitManagement : MonoBehaviour
             text.text = "Start";
             Debug.Log("Stop");
         }
-        player.SetActive(!isPower);
-        playerInCockpit.SetActive(isPower);
+        // player.SetActive(!isPower);
+        // playerInCockpit.SetActive(isPower);
         
     }
 }

@@ -109,8 +109,8 @@ public class CharacterStatus : MonoBehaviour
             for(int i = 0 ; i < hitAreas.Length ; i++){
                 if(hitAreas[i].tag == tag){
                     hitAreas[i].value -= damage;
-                    Debug.Log("Get Attack at " + hitAreas[i].tag);
-                    Debug.Log("now duration is " + hitAreas[i].value);
+                    // Debug.Log("Get Attack at " + hitAreas[i].tag);
+                    // Debug.Log("now duration is " + hitAreas[i].value);
                     break;
                 }
             }

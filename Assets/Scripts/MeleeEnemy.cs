@@ -63,7 +63,7 @@ public class MeleeEnemy : EnemyBot
                     else{
                         CalDamage();
                         if(!isAttack){
-                            Debug.Log("Attack");
+                            // Debug.Log("Attack");
                             agent.SetDestination(transform.position);
                             isAttack=true;
                             StartCoroutine(AttackRoutine());

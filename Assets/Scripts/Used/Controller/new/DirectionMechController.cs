@@ -58,11 +58,11 @@ public class DirectionMechController : MonoBehaviour
                 // Debug.Log(rotate * rSpeed);
                 target.transform.Rotate(Vector3.up, Time.deltaTime * -rotate * rSpeed);
             }
-
             // Aiming
             if(aimCursor != null){
                 aimCursor.MapCursor(controller.isUsed);
             }
+            
 
             // Shooting
             InputDevice device = InputDevices.GetDeviceAtXRNode(XRNode.RightHand);
@@ -91,6 +91,11 @@ public class DirectionMechController : MonoBehaviour
         }
     }
 
+
+    void LateUpdate()
+    {
+        
+    }
 
     public void ReturnToDefaultPosition(){
         transform.position =  Vector3.Lerp(transform.position, defaultPosition, 0.9f);

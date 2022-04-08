@@ -74,7 +74,7 @@ public class JaganController : MonoBehaviour
 
     void LateUpdate()
     {
-        Aiming();
+        // Aiming();
     }
 
     private void Aiming(){
@@ -118,7 +118,7 @@ public class JaganController : MonoBehaviour
 
     public void GetTakingDamage(float damage){
             characterStatus.GetDamaged(damage);
-            Debug.Log("Och!");
+            // Debug.Log("Och!");
     }
 
     // IEnumerator CooldownDamage(){
