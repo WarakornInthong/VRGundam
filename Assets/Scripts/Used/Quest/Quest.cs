@@ -50,12 +50,12 @@ public class Quest
 
     private void Update()
     {
-        CheckProgress();
+        // CheckProgress();
     }
 
-    private void CheckProgress(){
-        // if clear q_status becomes true
-    }
+    // private void CheckProgress(){
+    //     // if clear q_status becomes true
+    // }
 
     public string GetQuestName(){
         return q_name;

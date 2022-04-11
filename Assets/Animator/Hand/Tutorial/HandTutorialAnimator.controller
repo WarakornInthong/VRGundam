@@ -9,7 +9,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: button1
@@ -45,6 +45,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button1
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7551900188502773632}
   m_Solo: 0
@@ -69,6 +78,15 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -630931343019077855}
@@ -155,6 +173,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button3
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2897461056683821706}
   m_Solo: 0
@@ -178,7 +205,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: button1
@@ -277,6 +304,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button1
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7551900188502773632}
   m_Solo: 0
@@ -356,7 +392,16 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1357107266670252753}
@@ -411,7 +456,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: button1
@@ -447,6 +492,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button3
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2897461056683821706}
   m_Solo: 0
@@ -471,6 +525,15 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -630931343019077855}
@@ -525,7 +588,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 2
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   - m_ConditionMode: 2
     m_ConditionEvent: button1
@@ -583,13 +646,13 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Analog
+  - m_Name: button3
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: button3
+  - m_Name: button4
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -703,6 +766,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button3
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2897461056683821706}
   m_Solo: 0
@@ -749,6 +821,15 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -630931343019077855}
@@ -820,6 +901,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button1
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7551900188502773632}
   m_Solo: 0
@@ -865,7 +955,16 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1357107266670252753}
@@ -891,6 +990,15 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 1
     m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2897461056683821706}
@@ -958,6 +1066,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button2
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -630931343019077855}
   m_Solo: 0
@@ -983,6 +1100,15 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: button1
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7551900188502773632}
   m_Solo: 0
@@ -1006,7 +1132,16 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1357107266670252753}
@@ -1031,7 +1166,16 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Analog
+    m_ConditionEvent: button4
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button1
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button2
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: button3
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -1357107266670252753}
