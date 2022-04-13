@@ -36,7 +36,7 @@ public class DialogueManager : MonoBehaviour
         dialogueIsPlaying = false;
         dialoguePanel.SetActive(false);
 
-        // Get all choices
+        // create all choices
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
         foreach (GameObject choice in choices) {
@@ -46,11 +46,10 @@ public class DialogueManager : MonoBehaviour
     }
 
     private void Update() {
-        if(!dialogueIsPlaying){
-            return;
-        }
-        if (Input.GetKeyDown("g")){
-            ContinueStroy();
+        if(dialogueIsPlaying){
+            if (BasicMovementController.currentLestMInput){
+                ContinueStroy();
+            }
         }
     }
 
