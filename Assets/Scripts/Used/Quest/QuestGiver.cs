@@ -5,17 +5,19 @@ using UnityEngine.Events;
 public class QuestGiver : MonoBehaviour
 {
     [SerializeField]
-    private QusetDetail[] questlist;
+    private QuestDetail[] questlist;
     [SerializeField]
-    private List<Quest> quests = new List<Quest>();
+    public List<Quest> quests = new List<Quest>();
     private List<Quest> isTargetQuests = new List<Quest>();
     private int questIndex = 0;
-    // private bool isGiveQuest = false;
     [SerializeField]
     private bool isTarget = false;
     public UnityEvent ReceiveQuest;
     public UnityEvent SendQuest;
+
+    // check player in area
     private bool isAlreadyInArea = false;
+    // check system invoke event
     private bool isActivateEvent = false;
     public int size;
     
@@ -38,27 +40,30 @@ public class QuestGiver : MonoBehaviour
         Collider[] colliders = Physics.OverlapBox(transform.position, Vector3.one * size);
         // if(colliders.Length > 0 )
         //     Debug.Log(colliders[0].name);
-        if(colliders.Length > 0 && colliders[0].gameObject.CompareTag("Player")){
-            // 
-            isAlreadyInArea = true;
-            if(isAlreadyInArea && !isActivateEvent){
-                isActivateEvent = true;
-                if(isTarget){
-                    SendQuest.Invoke();
+        if(colliders.Length > 0){
+            // Check all colliders contain Player
+            int count = 0;
+            foreach(var obj in colliders){
+                if(obj.gameObject.CompareTag("Player")){
+                    // found player in area
+                    isAlreadyInArea = true;
+                    count++;
+                    // invoke event once time when player in area
+                    if(isAlreadyInArea && !isActivateEvent){
+                        isActivateEvent = true;
+                        if(isTarget){
+                            SendQuest.Invoke();
+                        }
+                        else{
+                            if(quests.ToArray().Length > 0)
+                                ReceiveQuest.Invoke();
+                        }
+                    }
                 }
-                else{
-                    ReceiveQuest.Invoke();
-                }
-                
-
-                // if(isGiveQuest){
-                //     SendQuest.Invoke();
-                //     isGiveQuest = false;
-                // }
-                // else{
-                //     ReceiveQuest.Invoke();
-                //     isGiveQuest = true;
-                // }
+            }
+            if(count == 0){
+                isAlreadyInArea = false;
+                isActivateEvent = false;
             }
         }
         else{
@@ -79,31 +84,57 @@ public class QuestGiver : MonoBehaviour
         
     }
 
-
+    // Test function can delete
     public void Test(string text){
         Debug.Log(text);
     }
 
     private void InitialCreateQuest(){
         if(questlist.Length > 0){
-            foreach(QusetDetail q_detail in questlist){
-                Quest quest = new Quest(q_detail.name, q_detail.description, "", this, q_detail.targetNPC);
+            foreach(QuestDetail q_detail in questlist){
+                Quest quest;
+                if(q_detail.type == QuestType.Eliminate)
+                {
+                    quest = CreateEliminateQuest(q_detail);
+                    // Debug.Log("create eliminate quest");
+                    // Debug.Log(q_detail.eliminateTargets.Length);
+                    foreach(var target in q_detail.eliminateTargets){
+                        // Debug.Log("Send Quest to Target");
+                        target.GetComponent<EliminateTarget>().SetQuest(quest);
+                    }
+                } 
+                else
+                    quest = CreateTalkQuest(q_detail);
                 quests.Add(quest);
             }
         }
     }
 
+    private Quest CreateTalkQuest(QuestDetail detail){
+        Quest quest = new Quest(detail.type, detail.name, detail.description, "", this, detail.targetNPC);
+        return quest;
+    }
+
+    private Quest CreateEliminateQuest(QuestDetail detail){
+        Quest quest = new Quest(detail.type, detail.name, detail.description, "", this, detail.targetNPC, detail.objectiveName, detail.eliminateTargets.Length);
+        return quest;
+    }
+
     public void GiveQuestToPlayer(){
         
         if(quests.ToArray().Length > 0){
-            // Debug.Log(quests[0].GetQuestName());
-            StateManager.AddNewQuest(quests[questIndex]);
-            QuestGiver target = quests[questIndex].GetTarget();
-            target.isTargetQuests.Add(quests[questIndex]);
+            Quest aQuest = quests[questIndex];
+            StateManager.AddNewQuest(aQuest);
+            if(aQuest.GetTarget() != null){
+                QuestGiver target = aQuest.GetTarget();
+                if(!target.isTargetQuests.Contains(aQuest))
+                    target.isTargetQuests.Add(aQuest);
+            }
         }
         
     }
 
+    // when quest have QuestGiver 
     public void CompleteQuest(){
         if(isTargetQuests.ToArray().Length > 0){        
             Quest dQuest = isTargetQuests[0];
@@ -111,19 +142,8 @@ public class QuestGiver : MonoBehaviour
             StateManager.ClearQuest(dQuest);
             isTargetQuests.Remove(dQuest);
             dQuest.GetGiver().quests.Remove(dQuest);
-
         }
     }
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -132,22 +152,13 @@ public class QuestGiver : MonoBehaviour
 
 
     [System.Serializable]
-    class QusetDetail{
+    class QuestDetail{
         public string name; 
         public string description;
         public QuestGiver targetNPC;
         public QuestType type;
+        public string objectiveName;
+        public EliminateTarget[] eliminateTargets;
     }
-    public enum QuestType{
 
-        // only talk to NPC
-        Talk = 0,
-        // Send item form a npc to another npc
-        SendItem = 1,
-        // eliminate target enemy
-        Eliminate = 2,
-        // gather item that requested
-        Collect = 3
-
-    }
 }

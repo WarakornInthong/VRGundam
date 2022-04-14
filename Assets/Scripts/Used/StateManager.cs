@@ -13,21 +13,39 @@ public class StateManager : MonoBehaviour
         doneQuest = new List<Quest>();
     }
 
-    // Update is called once per frame
+
     void Update()
     {
-        if(inProgressQuest.ToArray().Length > 0)
-            p_Quest = inProgressQuest.ToArray();
-        if(doneQuest.ToArray().Length > 0)
-            d_Quest = doneQuest.ToArray();
+        if(inProgressQuest.ToArray().Length != p_Quest.Length || doneQuest.ToArray().Length != d_Quest.Length){
+            UpdateQuestData();
+        }
     }
 
+
+    // For Debug can delete
+    private void UpdateQuestData(){
+        p_Quest = inProgressQuest.ToArray();
+        d_Quest = doneQuest.ToArray();
+        // Debug.Log("Update");
+    }
+
+    // Get Quest from QuestGiver
     public static void AddNewQuest(Quest quest){
-        if(!inProgressQuest.Contains(quest))
-            inProgressQuest.Add(quest);
-        Debug.Log("Get " + quest.GetQuestName());
+        if(!inProgressQuest.Contains(quest)){
+            if(quest.GetTarget() != null || quest.q_type == QuestType.Eliminate){
+                inProgressQuest.Add(quest);
+            }
+                
+            else{
+                inProgressQuest.Add(quest);
+                quest.SetComplete();
+            }
+                
+            Debug.Log("Get " + quest.GetQuestName());
+        }
     }
 
+    // Get Quest from QuestGiver
     public static void ClearQuest(Quest quest){
         if(inProgressQuest.Contains(quest)){
             doneQuest.Add(quest);
@@ -37,28 +55,5 @@ public class StateManager : MonoBehaviour
 
     }
 
-    // private static bool FindQuestInList(Quest quest, in List<Quest> questList){
-    //     foreach (var p_quest in questList)
-    //     {
-    //         if(p_quest.GetQuestName() == quest.GetQuestName()){
-    //             return true;
-    //         }
-    //     }
-    //     return false;
-    // }
-
-    // void OnDrawGizmos()
-    // {
-    //     if(inProgressQuest.ToArray().Length > 0){
-    //         inProgressQuest[0].GetGiver(out QuestGiver giver, out QuestGiver target);
-    //         Gizmos.color = Color.red;
-    //         Gizmos.DrawWireSphere(giver.transform.position, 0.5f);
-
-    //         Gizmos.color = Color.blue;
-    //         Gizmos.DrawWireSphere(target.transform.position, 0.5f);
-    //     }
-
-
-    // }
 
 }
