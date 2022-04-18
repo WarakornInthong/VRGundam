@@ -8,6 +8,13 @@ public class FollowObject : MonoBehaviour
     public Vector3 offset;
     public bool smoothMode = false;
     public float followSpeed = 0.03f;
+    public bool superAccess;
+
+    void Start() {
+        if(superAccess){
+            target = GameObject.Find("XR Origin").transform.GetChild(0).GetChild(0);
+        }
+    }
     void FixedUpdate()
     {
         if(smoothMode){

@@ -20,6 +20,9 @@ public class DialogueContainer : MonoBehaviour
                     DialogueManager.GetInstance().EnterDialogueMode(dialogue);
                 }
             }
+            else{
+                DialogueManager.GetInstance().EnterDialogueMode(dialogue);
+            }
             
             
         } else {
