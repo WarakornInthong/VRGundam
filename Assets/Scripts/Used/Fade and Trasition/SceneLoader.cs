@@ -35,6 +35,8 @@ public class SceneLoader : Singleton<SceneLoader>
         yield return screenFader.StartFadeIn();
         yield return StartCoroutine(UnloadCurrent());
 
+        yield return new WaitForSeconds(1);
+
         yield return StartCoroutine(LoadNew(sceneName));
         yield return screenFader.StartFadeOut();
 

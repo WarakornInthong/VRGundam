@@ -13,7 +13,7 @@ public class BasicMovementController : MonoBehaviour
     public float moveSpeed;
     public float camSpeed;
     public static bool currentEnterInput;
-    public static bool currentLestMInput;
+    public static bool currentLeftMInput;
     void Start()
     {
         character = GetComponent<CharacterController>();
@@ -48,6 +48,6 @@ public class BasicMovementController : MonoBehaviour
 
     public void OnLeftMouseDown(InputAction.CallbackContext value){
         // Debug.Log(value.ReadValueAsButton());
-        currentLestMInput = value.ReadValueAsButton();
+        currentLeftMInput = value.ReadValueAsButton();
     }
 }

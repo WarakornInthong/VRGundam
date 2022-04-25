@@ -5,37 +5,33 @@ using TMPro;
 using Ink.Runtime;
 using UnityEngine.EventSystems;
 
-public class DialogueManager : MonoBehaviour
+public class DialogueManager : Singleton<DialogueManager>
 {
-    [Header("Dialogue UI")]
-    [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] private TextMeshProUGUI dialogueText;
+    //[Header("Dialogue UI")]
+    [HideInInspector][SerializeField] private GameObject dialoguePanel;
+    [HideInInspector][SerializeField] private TextMeshProUGUI dialogueText;
 
-    [Header("Choices UI")]
+    //[Header("Choices UI")]
 
-    [SerializeField] private GameObject[] choices;
+    [HideInInspector][SerializeField] private GameObject[] choices;
     private TextMeshProUGUI[] choicesText;
 
 
     private Story currentStory;
     public bool dialogueIsPlaying { get; private set; }
 
-    private static DialogueManager instance;
-    private void Awake() {
-        if (instance != null) {
-            Debug.LogWarning("Found more than one Dialogue in the sceme ");
-        }
-        instance = this;
+
+    private bool flag;
+    public void InitDialogue(GameObject i_dialougePanel, TextMeshProUGUI i_dialougeText, GameObject[] i_choices){
+        dialoguePanel = i_dialougePanel;
+        dialogueText = i_dialougeText;
+        choices = i_choices;
+
+        SetupDialogue();
     }
 
-    public static DialogueManager GetInstance(){
-        return instance;
-    }
-
-    private void Start(){
-        dialogueIsPlaying = false;
+    private void SetupDialogue(){
         dialoguePanel.SetActive(false);
-
         // create all choices
         choicesText = new TextMeshProUGUI[choices.Length];
         int index = 0;
@@ -45,9 +41,24 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
+    private void Start(){
+        dialogueIsPlaying = false;
+    }
+
     private void Update() {
         if(dialogueIsPlaying){
-            if (BasicMovementController.currentLestMInput){
+            if(PlayerButtonInput.Instance.currentRightPrimaryButton == true){
+                
+                if(flag == false){
+                    flag = true;
+                    ContinueStroy();
+                }
+            }
+            else if(PlayerButtonInput.Instance.currentRightPrimaryButton == false){
+                flag = false;
+            }
+
+            if (BasicMovementController.currentLeftMInput){
                 ContinueStroy();
             }
         }
@@ -101,7 +112,6 @@ public class DialogueManager : MonoBehaviour
         for (int i = index ; i <choices.Length;i++) {
             choices[i].gameObject.SetActive(false);
         }
-
         StartCoroutine(SelectFirstChoice());
     }
 
@@ -116,8 +126,8 @@ public class DialogueManager : MonoBehaviour
 
     public void MakeChoice(int choiceIndex){
         currentStory.ChooseChoiceIndex(choiceIndex);
+        ContinueStroy();
     }
-
 
 
 

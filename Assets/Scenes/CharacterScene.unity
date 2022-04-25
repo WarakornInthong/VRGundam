@@ -134,6 +134,8 @@ GameObject:
   - component: {fileID: 311796172}
   - component: {fileID: 311796171}
   - component: {fileID: 311796173}
+  - component: {fileID: 311796175}
+  - component: {fileID: 311796174}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -166,7 +168,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &311796173
 MonoBehaviour:
@@ -182,6 +184,40 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   p_Quest: []
   d_Quest: []
+--- !u!114 &311796174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311796170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cceb3e3b527e84bb84f4d8c57e2da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  choices: []
+--- !u!114 &311796175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311796170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b376fdd76556a84a87a7c87f6f50e11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnLoadBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnLoadEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  screenFader: {fileID: 550175176}
 --- !u!1 &358658858
 GameObject:
   m_ObjectHideFlags: 0
@@ -310,6 +346,10 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 16383
       objectReference: {fileID: 0}
+    - target: {fileID: 8747374842189746109, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8747374842729380011, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 200
@@ -336,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 1.17
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -344,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 7.12
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -830,7 +870,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &651926708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -917,7 +957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2020802981603843773, guid: c5fa173234d8a604a9ed0643f4829c76, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2020802981603843773, guid: c5fa173234d8a604a9ed0643f4829c76, type: 3}
       propertyPath: m_AnchorMax.x
@@ -1089,6 +1129,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &909096213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 909096215}
+  - component: {fileID: 909096214}
+  m_Layer: 0
+  m_Name: DialoueManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &909096214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909096213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13cceb3e3b527e84bb84f4d8c57e2da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialoguePanel: {fileID: 0}
+  dialogueText: {fileID: 0}
+  choices:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+--- !u!4 &909096215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 909096213}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6, y: 2, z: 11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &927849217
 GameObject:
@@ -1495,6 +1584,120 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57eb5730575cc434bbff20105b9032d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1373914194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373914187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 513ba98a537b40b458d5e2d0fb71c1b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLeftPrimaryButton: 0
+  currentLeftSecondaryButton: 0
+  currentRightPrimaryButton: 0
+  currentRightSecondaryButton: 0
+--- !u!114 &1373914195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373914187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1341e4c0b7b135141b7f437c2553a624, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1373914194}
+        m_TargetAssemblyTypeName: PlayerButtonInput, Assembly-CSharp
+        m_MethodName: OnLeftPrimaryButtonDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 3a3dd6ba-da92-4437-83fb-2367c00b3aeb
+    m_ActionName: XRPlayerInput/LeftPrimaryButton
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1373914194}
+        m_TargetAssemblyTypeName: PlayerButtonInput, Assembly-CSharp
+        m_MethodName: OnLeftSecondaryButtonDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 44812f06-5c6a-4655-b13b-d4eba9db1632
+    m_ActionName: XRPlayerInput/LeftSecondaryButton
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1373914194}
+        m_TargetAssemblyTypeName: PlayerButtonInput, Assembly-CSharp
+        m_MethodName: OnRightPrimaryButtonDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: f135c7db-67d0-4a5b-beaf-f05e61e138b6
+    m_ActionName: XRPlayerInput/RightPrimaryButton
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1373914194}
+        m_TargetAssemblyTypeName: PlayerButtonInput, Assembly-CSharp
+        m_MethodName: OnRightSecondaryButtonDown
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 33c07681-5503-467c-973f-67e5a4c8a0a5
+    m_ActionName: XRPlayerInput/RightSecondaryButton
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b5302600-8b76-41d2-97f0-3f05b6ae9c34
+    m_ActionName: XRPlayerInput/MenuButton
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: XRPlayerInput
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1001 &1420571327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1696,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1863884375
 Transform:
   m_ObjectHideFlags: 0

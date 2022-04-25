@@ -8,6 +8,7 @@ public class FadeScreen : MonoBehaviour
     [SerializeField] private float intensity = 0.0f;
     [SerializeField] private Color color = Color.black;
     [SerializeField] private Material fadeMaterial = null;
+    private LayerSwitcher layerSwitcher;
     public bool loadOnStart = true;
     public float fadeDuration = 2;
 
@@ -18,6 +19,8 @@ public class FadeScreen : MonoBehaviour
     // }
 
     void Start() {
+        layerSwitcher = GetComponent<LayerSwitcher>();
+        StartFadeIn();
         if(loadOnStart)
             SceneLoader.Instance.LoadNewScene("scene2");
     }
