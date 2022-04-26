@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 public class OnTargetReached : MonoBehaviour
 {
-    public float threshold = 0.014f;
+    public float threshold;
     public Transform target;
     public UnityEvent OnReached;
     public UnityEvent OnRelease;

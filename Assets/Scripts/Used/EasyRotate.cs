@@ -30,7 +30,7 @@ public class EasyRotate : MonoBehaviour
             MoveCamera();
         }
     }
-
+    
     void LateUpdate()
     {
         if(mode == 3){

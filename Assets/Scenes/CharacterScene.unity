@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.4660946, g: 0.4657923, b: 0.46188927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000002, guid: f8054f7865d57e64e933aec5d597e52b, type: 2}
+  m_LightingDataAsset: {fileID: 112000002, guid: 60e8d86127a528e46a48ed51efe7f8c5, type: 2}
   m_LightingSettings: {fileID: 4890085278179872738, guid: 02b55b0717c80e243a409687987968b9, type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -376,7 +376,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -384,7 +384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568117, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -420,7 +420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568119, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8747374843081568119, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
       propertyPath: m_TagString
@@ -428,17 +428,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
---- !u!114 &550175173 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8747374843081568115, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
-  m_PrefabInstance: {fileID: 550175172}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1373914187}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03a5df2202a8b96488c744be3bd0c33e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &550175174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8747374842189746097, guid: c660d5d1db6611b4c8c520aa2988398d, type: 3}
@@ -480,7 +469,6 @@ GameObject:
   - component: {fileID: 645006735}
   - component: {fileID: 645006734}
   - component: {fileID: 645006733}
-  - component: {fileID: 645006737}
   m_Layer: 0
   m_Name: LeftRay Interactor
   m_TagString: Untagged
@@ -806,7 +794,7 @@ MonoBehaviour:
   m_HoverTimeToSelect: 0.5
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 0
-  m_UseForceGrab: 0
+  m_UseForceGrab: 1
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -832,7 +820,7 @@ MonoBehaviour:
   m_ModelSelectTransition: 
   m_ModelDeSelectTransition: 
   m_ControllerNode: 4
-  m_SelectUsage: 14
+  m_SelectUsage: 3
   m_ActivateUsage: 2
   m_UIPressUsage: 2
   m_AxisToPressThreshold: 0.1
@@ -841,19 +829,6 @@ MonoBehaviour:
   m_MoveObjectIn: 0
   m_MoveObjectOut: 0
   m_PoseProvider: {fileID: 0}
---- !u!114 &645006737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 645006731}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01f69dc1cb084aa42b2f2f8cd87bc770, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_System: {fileID: 550175173}
 --- !u!1 &651926707
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1494,7 @@ MonoBehaviour:
   m_HoverTimeToSelect: 0.5
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 0
-  m_UseForceGrab: 0
+  m_UseForceGrab: 1
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
