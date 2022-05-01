@@ -47,9 +47,10 @@ public class DirectionMechController : MonoBehaviour
             // Rotate Target
             float direct = transform.position.z -  defaultPosition.z;
             float rotate;
-            // Debug.Log(transform.localRotation.eulerAngles.x);
+            // Debug.Log(transform.localRotation.eulerAngles.x); 
             if(transform.localRotation.eulerAngles.x >= 180){
                 rotate = transform.localRotation.eulerAngles.x - 360;
+                
             }
             else{
                 rotate = transform.localRotation.eulerAngles.x;

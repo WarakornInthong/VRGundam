@@ -8,32 +8,30 @@ public class EasyRotate : MonoBehaviour
     [Range(0.5f,5)]
     public float distance;
     
-    [Range(1,3)]
+    [Range(0,2)]
     public int mode;
     void Start()
     {
-        if(mode == 0){
-            mode = 2;
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(mode == 1){
+        if(mode == 0){
             MoveCamera();
         }
     }
 
     void FixedUpdate() {
-        if(mode == 2){
+        if(mode == 1){
             MoveCamera();
         }
     }
     
-    void LateUpdate()
+    void Latepdate()
     {
-        if(mode == 3){
+        if(mode == 2){
             MoveCamera();
         }
     }

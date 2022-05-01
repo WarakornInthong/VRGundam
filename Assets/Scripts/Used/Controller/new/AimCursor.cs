@@ -54,6 +54,7 @@ public class AimCursor : MonoBehaviour
                 aimDirection = (hit.point - transform.position).normalized;
                 Vector3 newObj = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
                 obj.localPosition = new Vector3(-posCursor.z/2, posCursor.y, -0.01f);
+
                 if(aimImage){
                     //Raycast(Vector3 origin, Vector3 direction, out RaycastHit hitInfo);\
                     if(Physics.Raycast(rayOrigin.position, rayOrigin.forward, out RaycastHit objectHit))
@@ -78,8 +79,8 @@ public class AimCursor : MonoBehaviour
         }
     }
 
-    public Vector3 GetAimDirection(){
-        return transform.localEulerAngles;
-    }
+    // public Vector3 GetAimDirection(){
+    //     return transform.localEulerAngles;
+    // }
 
 }

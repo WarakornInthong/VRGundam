@@ -12,11 +12,35 @@ EditorBuildSettings:
     path: Assets/Scenes/StartScene.unity
     guid: 427dbcc8e1b23cd4aa9cc5b59abebc68
   - enabled: 1
-    path: Assets/Scenes/scene1.unity
-    guid: 418f075673c61ff47acdd1d773e38e06
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 918bbe6944b988241b7c5ae8a465ffde
   - enabled: 1
-    path: Assets/Scenes/scene2.unity
-    guid: 9262dc908d810644c8b8dd071a363525
+    path: Assets/Scenes/Tutorial/TutorialRoom1.unity
+    guid: 309eca8b0de9aa54bbd94822af0f2eed
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialCatapultDeck.unity
+    guid: bd52b7cbf1698814093e08967d0a5b7c
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom1To2.unity
+    guid: db13ea26c6c3fd543be42f2b84e0a752
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom2.unity
+    guid: 1afa703a8f81a1f4db00713a3e2d70ff
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom2To3.unity
+    guid: 288527d7493f6e84dad6b5370730f23e
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom3.unity
+    guid: 69e4f4a5f5e2b1944b99a6323df25063
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom3To4.unity
+    guid: c174b6c481fdb9349a4239ebae614f46
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom4.unity
+    guid: 04a159adcd174bb4cbc48590b697ec58
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/TutorialRoom5.unity
+    guid: aeee220f777586843915da0297b9e593
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: ba4c5ed0ad748844f84fbb8bafbeffdf, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: cf35e41e7e355ba4e8a35d2125eb102e, type: 2}

@@ -20,6 +20,7 @@ public class TestWeaponIK : MonoBehaviour
     // Transform[] boneTransforms;
     public float angleLimit = 90.0f;
     public float distanceLimit = 1.5f;
+    public bool isAimMode = false;
     void Start()
     {
         if(!targetTransform){
@@ -32,9 +33,11 @@ public class TestWeaponIK : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Vector3 targetPosition = GetTargetPosition();
-        for(int i = 0; i < iterations ; i++){
-            AimAtTarget(bone, targetPosition, weight);
+        if(isAimMode){
+            Vector3 targetPosition = GetTargetPosition();
+            for(int i = 0; i < iterations ; i++){
+                AimAtTarget(bone, targetPosition, weight);
+            }
         }
             
     }

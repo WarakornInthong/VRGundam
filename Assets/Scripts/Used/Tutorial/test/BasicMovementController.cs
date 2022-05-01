@@ -14,6 +14,7 @@ public class BasicMovementController : MonoBehaviour
     public float camSpeed;
     public static bool currentEnterInput;
     public static bool currentLeftMInput;
+    private float currentUpDown;
     void Start()
     {
         character = GetComponent<CharacterController>();
@@ -28,6 +29,8 @@ public class BasicMovementController : MonoBehaviour
         Quaternion headYaw = Quaternion.Euler(0, transform.eulerAngles.y, 0);
         Vector3 direction = headYaw * currentMovementInput;
         character.Move(direction * Time.fixedDeltaTime * moveSpeed);
+
+        character.Move(Vector3.up * currentUpDown * Time.fixedDeltaTime);
     }
     public void OnMovement(InputAction.CallbackContext value){
         // Debug.Log(value.ReadValue<Vector2>());
@@ -44,6 +47,10 @@ public class BasicMovementController : MonoBehaviour
     public void OnEnterDown(InputAction.CallbackContext value){
         // Debug.Log(value.ReadValueAsButton());
         currentEnterInput = value.ReadValueAsButton();
+    }
+
+    public void OnQEDown(InputAction.CallbackContext value){
+        currentUpDown = value.ReadValue<float>();
     }
 
     public void OnLeftMouseDown(InputAction.CallbackContext value){

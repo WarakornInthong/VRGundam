@@ -30,12 +30,13 @@ public class JaganController : MonoBehaviour
     [SerializeField]
     private float hp = 100;
     private CharacterStatus characterStatus;
+    public bool isAimMode;
     
     void Start()
     {
         // Set Animation Fight Mode
         animator = GetComponent<Animator>();
-        animator.SetBool("Aim",true);
+        
 
         character = GetComponent<CharacterController>();
         if(GetComponent<CharacterStatus>() != null){
@@ -55,6 +56,7 @@ public class JaganController : MonoBehaviour
             moveSpeed = 4f;
         }
         hp = characterStatus.GetHP();
+        animator.SetBool("Aim", isAimMode);
     }
 
     void FixedUpdate(){
